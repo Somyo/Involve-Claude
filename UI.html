@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player APP UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 30px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #7F7FD5, #86A8E7, #91EAE4);
+        }
+        .notch {
+            position: absolute;
+            width: 50%;
+            height: 30px;
+            top: 0;
+            left: 25%;
+            background-color: #000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 20px;
+        }
+        .category-container {
+            margin: 0 -20px;
+            padding: 0 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .category-container::-webkit-scrollbar {
+            display: none;
+        }
+        .bottom-nav {
+            width: 100%;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 8px 0;
+        }
+        .bottom-nav-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <h1 class="text-3xl font-bold text-center mb-10">Visha - African Video Player App UI Design</h1>
+    
+    <div class="flex flex-wrap justify-center">
+        <!-- Home Page -->
+        <div class="phone-frame">
+            <div class="screen">
+                <div class="content p-5">
+                    <!-- Top Search Bar -->
+                    <div class="mt-5 mb-6">
+                        <div class="flex items-center justify-between">
+                            <h1 class="text-2xl font-bold text-black">Visha</h1>
+                            <div class="flex items-center space-x-3">
+                                <button class="text-black">
+                                    <i class='bx bx-bell text-2xl'></i>
+                                </button>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-white font-bold">
+                                    A
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="relative mt-4">
+                            <input type="text" placeholder="Search videos..." class="w-full rounded-full py-3 px-5 bg-gray-100 text-black outline-none">
+                            <button class="absolute right-4 top-3 text-gray-500">
+                                <i class='bx bx-search text-xl'></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Category Tags -->
+                    <div class="category-container">
+                        <div class="flex space-x-1 pb-2 mb-5">
+                            <button class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-medium whitespace-nowrap">All</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Music</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Movies</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Education</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Sports</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">News</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Culture</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Nature</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Food</button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap">Travel</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Video -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-bold text-black">Featured</h2>
+                            <button class="text-blue-500 font-medium">See all</button>
+                        </div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden h-48 shadow-md">
+                            <img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                                <h3 class="text-white font-bold">African Savanna Adventure</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="text-white text-xs">10:25</span>
+                                    <div class="flex items-center ml-3">
+                                        <i class='bx bx-play text-white'></i>
+                                        <span class="text-white text-xs ml-1">12.3K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="absolute top-3 right-3 bg-black/30 rounded-full p-1">
+                                <i class='bx bx-bookmark text-white text-xl'></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Recently Watched -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-bold text-black">Recently Watched</h2>
+                            <button class="text-blue-500 font-medium">See all</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="rounded-xl overflow-hidden shadow-sm">
+                                <div class="relative h-24">
+                                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-1 rounded">05:32</div>
+                                    <div class="absolute top-0 left-0 w-full h-full bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                                        <i class='bx bx-play-circle text-white text-3xl'></i>
+                                    </div>
+                                </div>
+                                <div class="p-2">
+                                    <h3 class="text-black text-sm font-medium truncate">Traditional Dance Performance</h3>
+                                    <div class="flex items-center mt-1">
+                                        <i class='bx bx-time-five text-gray-500 text-xs'></i>
+                                        <span class="text-gray-500 text-xs ml-1">3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="rounded-xl overflow-hidden shadow-sm">
+                                <div class="relative h-24">
+                                    <img src="https://images.unsplash.com/photo-1603574670812-d24560880210?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-1 rounded">12:45</div>
+                                    <div class="absolute top-0 left-0 w-full h-full bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+                                        <i class='bx bx-play-circle text-white text-3xl'></i>
+                                    </div>
+                                </div>
+                                <div class="p-2">
+                                    <h3 class="text-black text-sm font-medium truncate">Music Festival Live</h3>
+                                    <div class="flex items-center mt-1">
+                                        <i class='bx bx-time-five text-gray-500 text-xs'></i>
+                                        <span class="text-gray-500 text-xs ml-1">Yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- You May Like -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-bold text-black">You May Like</h2>
+                            <button class="text-blue-500 font-medium">See all</button>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex bg-white rounded-xl p-2 shadow-sm">
+                                <div class="relative w-24 h-16 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 rounded">08:15</div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-black text-sm font-medium line-clamp-2">African Wildlife Documentary Highlights</h3>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-gray-500 text-xs">4.5K views</span>
+                                        <span class="mx-1 text-gray-300">•</span>
+                                        <span class="text-gray-500 text-xs">2 days ago</span>
+                                    </div>
+                                </div>
+                                <button class="text-gray-400">
+                                    <i class='bx bx-dots-vertical-rounded text-xl'></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex bg-white rounded-xl p-2 shadow-sm">
+                                <div class="relative w-24 h-16 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 rounded">15:22</div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-black text-sm font-medium line-clamp-2">Local Cuisine Tutorial - Traditional African Recipes</h3>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-gray-500 text-xs">8.2K views</span>
+                                        <span class="mx-1 text-gray-300">•</span>
+                                        <span class="text-gray-500 text-xs">1 week ago</span>
+                                    </div>
+                                </div>
+                                <button class="text-gray-400">
+                                    <i class='bx bx-dots-vertical-rounded text-xl'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Navigation Bar -->
+                <div class="bottom-nav">
+                    <div class="bottom-nav-container">
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-home-alt text-blue-500 text-2xl'></i>
+                            <span class="text-xs text-blue-500 mt-1">Home</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-compass text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Discover</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <div class="relative">
+                                <i class='bx bx-cloud-download text-gray-400 text-2xl'></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-1">Downloads</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-user text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Details Page -->
+        <div class="phone-frame">
+            <div class="screen">
+                <div class="content">
+                    <!-- Video Player -->
+                    <div class="relative w-full h-56 bg-black">
+                        <img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 rounded-full bg-white/30 flex items-center justify-center">
+                                <i class='bx bx-pause text-white text-3xl'></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Back Button -->
+                        <button class="absolute top-5 left-5">
+                            <i class='bx bx-chevron-left text-white text-3xl'></i>
+                        </button>
+
+                        <!-- Subtitle Button -->
+                        <button class="absolute top-5 right-5">
+                            <i class='bx bx-captions text-white text-2xl'></i>
+                        </button>
+                        
+                        <!-- Control Bar -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-white text-xs">05:32 / 10:25</span>
+                                <div class="flex items-center space-x-4">
+                                    <button>
+                                        <i class='bx bx-skip-previous text-white text-xl'></i>
+                                    </button>
+                                    <button>
+                                        <i class='bx bx-skip-next text-white text-xl'></i>
+                                    </button>
+                                    <button>
+                                        <i class='bx bx-fullscreen text-white text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="w-full bg-gray-500/50 rounded-full h-1">
+                                <div class="bg-blue-500 h-1 rounded-full" style="width: 50%">
+                                    <div class="w-3 h-3 bg-white rounded-full absolute -mt-1 ml-auto" style="left: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Information -->
+                    <div class="p-5">
+                        <h1 class="text-xl font-bold text-black">African Savanna Adventure</h1>
+                        
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 text-sm">45.3K views</span>
+                                <span class="mx-2 text-gray-300">•</span>
+                                <span class="text-gray-500 text-sm">3 days ago</span>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <button class="flex flex-col items-center">
+                                    <i class='bx bx-like text-gray-500 text-xl'></i>
+                                    <span class="text-xs text-gray-500">8.5K</span>
+                                </button>
+                                <button class="flex flex-col items-center">
+                                    <i class='bx bx-dislike text-gray-500 text-xl'></i>
+                                    <span class="text-xs text-gray-500">125</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Share and Save Buttons -->
+                        <div class="flex space-x-1 mt-4">
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap flex items-center">
+                                <i class='bx bx-share-alt text-lg'></i>
+                                <span class="ml-1">Share</span>
+                            </button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap flex items-center">
+                                <i class='bx bx-cloud-download text-lg'></i>
+                                <span class="ml-1">Save to Cloud</span>
+                            </button>
+                            <button class="px-4 py-2 rounded-full bg-gray-100 text-black font-medium whitespace-nowrap flex items-center">
+                                <i class='bx bx-download text-lg'></i>
+                                <span class="ml-1">Save to Device</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Channel Information -->
+                        <div class="flex items-center justify-between mt-6">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold mr-3">
+                                    A
+                                </div>
+                                <div>
+                                    <h3 class="text-black font-medium">African Adventure Channel</h3>
+                                    <p class="text-gray-500 text-xs">450K subscribers</p>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-blue-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">
+                                Subscribe
+                            </button>
+                        </div>
+                        
+                        <!-- Video Description -->
+                        <div class="mt-5 bg-gray-50 p-4 rounded-xl">
+                            <h3 class="text-black font-medium mb-2">Description</h3>
+                            <p class="text-gray-700 text-sm">
+                                Join us on an amazing African Savanna adventure! In this video, we explore the magnificent landscapes of Africa, witness its rich wildlife, and experience unique local traditions. This is part one of our Africa series, with more exciting content coming soon.
+                            </p>
+                            <button class="text-blue-500 text-sm font-medium mt-2">
+                                See more
+                            </button>
+                        </div>
+                        
+                        <!-- Related Videos -->
+                        <div class="mt-6">
+                            <h3 class="text-black font-medium mb-3">Related Videos</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex">
+                                    <div class="relative w-28 h-20 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 rounded">08:15</div>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-black text-sm font-medium line-clamp-2">African Savanna Sunset - Spectacular Views</h4>
+                                        <p class="text-gray-500 text-xs mt-1">African Adventure Channel</p>
+                                        <div class="flex items-center mt-1">
+                                            <span class="text-gray-500 text-xs">32K views</span>
+                                            <span class="mx-1 text-gray-300">•</span>
+                                            <span class="text-gray-500 text-xs">1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="relative w-28 h-20 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 rounded">15:22</div>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-black text-sm font-medium line-clamp-2">Exploring African Traditional Villages and Customs</h4>
+                                        <p class="text-gray-500 text-xs mt-1">World Culture Channel</p>
+                                        <div class="flex items-center mt-1">
+                                            <span class="text-gray-500 text-xs">18K views</span>
+                                            <span class="mx-1 text-gray-300">•</span>
+                                            <span class="text-gray-500 text-xs">2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Navigation Bar -->
+                <div class="bottom-nav">
+                    <div class="bottom-nav-container">
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-home-alt text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Home</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-compass text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Discover</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <div class="relative">
+                                <i class='bx bx-cloud-download text-gray-400 text-2xl'></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-1">Downloads</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-user text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discover Page -->
+        <div class="phone-frame">
+            <div class="screen">
+                <div class="content p-5">
+                    <!-- Top Bar -->
+                    <div class="mt-5 mb-6">
+                        <h1 class="text-2xl font-bold text-black">Discover</h1>
+                        <p class="text-gray-500 text-sm mt-1">Find new and trending videos</p>
+                    </div>
+
+                    <!-- Trending Topics -->
+                    <div class="mb-6">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="relative rounded-2xl overflow-hidden h-32 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
+                                    <div>
+                                        <h3 class="text-white font-bold">Culture</h3>
+                                        <p class="text-white/80 text-xs">1.2K videos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl overflow-hidden h-32 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
+                                    <div>
+                                        <h3 class="text-white font-bold">Nature</h3>
+                                        <p class="text-white/80 text-xs">856 videos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Creators -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-bold text-black mb-4">Trending Creators</h2>
+                        <div class="flex space-x-4 overflow-x-auto pb-2">
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-0.5">
+                                    <div class="w-full h-full rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1507878866276-a947ef722fee" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <p class="text-black text-sm mt-2">AfriMusic</p>
+                                <p class="text-gray-500 text-xs">1.2M subs</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-0.5">
+                                    <div class="w-full h-full rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <p class="text-black text-sm mt-2">FoodieArt</p>
+                                <p class="text-gray-500 text-xs">890K subs</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-500 p-0.5">
+                                    <div class="w-full h-full rounded-full overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <p class="text-black text-sm mt-2">TravelPro</p>
+                                <p class="text-gray-500 text-xs">650K subs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Now -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-bold text-black mb-4">Live Now</h2>
+                        <div class="space-y-4">
+                            <div class="relative rounded-xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d" class="w-full h-40 object-cover">
+                                <div class="absolute top-3 left-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-1"></span>
+                                    LIVE
+                                </div>
+                                <div class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                                    2.1K watching
+                                </div>
+                                <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
+                                    <h3 class="text-white font-bold">Live Safari Tour - Serengeti National Park</h3>
+                                    <p class="text-white/80 text-sm mt-1">Safari Adventures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation Bar -->
+                <div class="bottom-nav">
+                    <div class="bottom-nav-container">
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-home-alt text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Home</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-compass text-blue-500 text-2xl'></i>
+                            <span class="text-xs text-blue-500 mt-1">Discover</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <div class="relative">
+                                <i class='bx bx-cloud-download text-gray-400 text-2xl'></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-1">Downloads</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-user text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div class="phone-frame">
+            <div class="screen">
+                <div class="content">
+                    <!-- Profile Header -->
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute -bottom-16 w-full px-5">
+                            <div class="flex items-end">
+                                <div class="w-24 h-24 rounded-full border-4 border-white overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1507878866276-a947ef722fee" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 ml-4 mb-2">
+                                    <h2 class="text-white text-xl font-bold">John Doe</h2>
+                                    <p class="text-white/80 text-sm">@johndoe</p>
+                                </div>
+                                <button class="mb-2 bg-blue-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Stats -->
+                    <div class="mt-20 px-5">
+                        <div class="flex justify-around">
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-black">248</p>
+                                <p class="text-gray-500 text-sm">Videos</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-black">12.4K</p>
+                                <p class="text-gray-500 text-sm">Followers</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-black">485</p>
+                                <p class="text-gray-500 text-sm">Following</p>
+                            </div>
+                        </div>
+
+                        <!-- Profile Actions -->
+                        <div class="flex space-x-2 mt-6">
+                            <button class="flex-1 bg-gray-100 py-2 rounded-full text-black font-medium">
+                                My Videos
+                            </button>
+                            <button class="flex-1 bg-gray-100 py-2 rounded-full text-black font-medium">
+                                Saved
+                            </button>
+                            <button class="flex-1 bg-gray-100 py-2 rounded-full text-black font-medium">
+                                Playlists
+                            </button>
+                        </div>
+
+                        <!-- My Videos -->
+                        <div class="mt-6">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="rounded-xl overflow-hidden">
+                                    <div class="relative">
+                                        <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53" class="w-full h-32 object-cover">
+                                        <div class="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-1 rounded">03:45</div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <h3 class="text-black text-sm font-medium">African Culture Tour</h3>
+                                        <div class="flex items-center mt-1">
+                                            <span class="text-gray-500 text-xs">8.2K views</span>
+                                            <span class="mx-1 text-gray-300">•</span>
+                                            <span class="text-gray-500 text-xs">2 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden">
+                                    <div class="relative">
+                                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801" class="w-full h-32 object-cover">
+                                        <div class="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-1 rounded">05:18</div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <h3 class="text-black text-sm font-medium">Sunset Safari Vlog</h3>
+                                        <div class="flex items-center mt-1">
+                                            <span class="text-gray-500 text-xs">12.4K views</span>
+                                            <span class="mx-1 text-gray-300">•</span>
+                                            <span class="text-gray-500 text-xs">1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation Bar -->
+                <div class="bottom-nav">
+                    <div class="bottom-nav-container">
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-home-alt text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Home</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-compass text-gray-400 text-2xl'></i>
+                            <span class="text-xs text-gray-400 mt-1">Discover</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <div class="relative">
+                                <i class='bx bx-cloud-download text-gray-400 text-2xl'></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                            </div>
+                            <span class="text-xs text-gray-400 mt-1">Downloads</span>
+                        </button>
+                        <button class="flex flex-col items-center">
+                            <i class='bx bx-user text-blue-500 text-2xl'></i>
+                            <span class="text-xs text-blue-500 mt-1">Profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
